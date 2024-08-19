@@ -72,3 +72,18 @@ export const deleteBook = async (req, res) => {
     });
   }
 };
+
+export const getAllBooks = async (req, res) => {
+  try {
+    const allBooks = await books.find().sort({ createdAt: -1 });
+    return res.status(200).json({
+      status: "success",
+      data: allBooks,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+};
