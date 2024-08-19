@@ -14,4 +14,5 @@ router.route("/update-book").put(isAuthenticated, updateBook);
 router.route("/delete-book").delete(isAuthenticated, deleteBook);
 router.route("/get-all-books").get(isAuthenticated, getAllBooks);
 router.route("/get-recent-books").get(isAuthenticated, getRecentBooks);
+router.route("/get-book-by-id/:id").get(isAuthenticated, getRecentBooks);
 export default router;

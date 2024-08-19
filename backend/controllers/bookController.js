@@ -102,3 +102,19 @@ export const getRecentBooks = async (req, res) => {
     });
   }
 };
+
+export const getBookById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const book = await books.findById(id);
+    return res.json({
+      status: "Success",
+      data: book,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+};
