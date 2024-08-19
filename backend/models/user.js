@@ -30,18 +30,25 @@ const userSchema = new mongoose.Schema(
       default: "user",
       enum: ["user", "admin"],
     },
-    favourites: {
-      type: mongoose.Types.ObjectId,
-      ref: "books",
-    },
-    cart: {
-      type: mongoose.Types.ObjectId,
-      ref: "books",
-    },
-    order: {
-      type: mongoose.Types.ObjectId,
-      ref: "order",
-    },
+    favourites: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "books",
+      },
+    ],
+    cart: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "books",
+      },
+    ],
+
+    order: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: "order",
+      },
+    ],
   },
   {
     timestamps: true,
