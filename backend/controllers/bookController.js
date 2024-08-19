@@ -57,3 +57,18 @@ export const updateBook = async (req, res) => {
     });
   }
 };
+
+export const deleteBook = async (req, res) => {
+  try {
+    const { bookid } = req.headers;
+    await books.findByIdAndDelete(bookid);
+    return res.status(200).json({
+      message: "Deleted SuccessFully",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
+};
