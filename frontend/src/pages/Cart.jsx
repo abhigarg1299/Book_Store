@@ -18,7 +18,7 @@ function Cart() {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:1000/api/v1/cart/get-cart-books",
+          "https://book-store-backend-zkn3.onrender.com/api/v1/cart/get-cart-books",
           { headers }
         );
         setCart(response.data.data);
@@ -33,7 +33,7 @@ function Cart() {
   const deleteItem = async (bookid) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:1000/api/v1/cart/remove-book-from-cart/${bookid}`,
+        `https://book-store-backend-zkn3.onrender.com/api/v1/cart/remove-book-from-cart/${bookid}`,
         {},
         { headers }
       );
