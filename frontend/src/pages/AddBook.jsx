@@ -34,7 +34,7 @@ function AddBook() {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "http://127.0.0.1:1000/api/v1/book/add-book",
+          "https://book-store-backend-zkn3.onrender.com/api/v1/book/add-book",
           Data,
           { headers }
         );
