@@ -58,7 +58,7 @@ function Cart() {
   const PlaceOrder = async () => {
     try {
       const response = await axios.post(
-        `http://127.0.0.1:1000/api/v1/order/place-order`,
+        `https://book-store-backend-zkn3.onrender.com/api/v1/order/place-order`,
         { order: cart },
         { headers }
       );
