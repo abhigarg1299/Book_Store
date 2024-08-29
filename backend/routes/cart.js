@@ -8,6 +8,8 @@ import {
 const router = express.Router();
 
 router.route("/add-to-cart").put(isAuthenticated, addBookToCart);
-router.route("/remove-book-from-cart").put(isAuthenticated, removeBookFromCart);
+router
+  .route("/remove-book-from-cart/:id")
+  .put(isAuthenticated, removeBookFromCart);
 router.route("/get-cart-books").get(isAuthenticated, getCartBooks);
 export default router;

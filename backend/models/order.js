@@ -11,12 +11,12 @@ const orderSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: "order Placed",
-      enum: ["order Placed,out for delivery,Delivered,cancelled"],
+      default: "Order Placed",
+      enum: ["Order Placed", "Out for Delivery", "Delivered", "Cancelled"],
     },
   },
   {
     timestamps: true,
   }
 );
-export const order = mongoose.model("order", orderSchema);
+export const Order = mongoose.model("Order", orderSchema);

@@ -1,12 +1,12 @@
-import { order } from "../models/order.js";
+import { Order } from "../models/order.js";
 import { user } from "../models/user.js";
-import { books } from "../models/book.js";
 export const placeOrder = async (req, res) => {
   try {
     const { id } = req.headers;
-    const { Order } = req.body;
-    for (const orderData of Order) {
-      const newOrder = new order({ user: id, book: orderData._id });
+    const { order } = req.body;
+
+    for (const orderData of order) {
+      const newOrder = new Order({ user: id, book: orderData._id });
       const orderDataFromDb = await newOrder.save();
 
       //saving order in user model
@@ -39,7 +39,7 @@ export const getOrderHistory = async (req, res) => {
       populate: { path: "book" },
     });
 
-    const orderData = userData.orders.reverse();
+    const orderData = userData.order.reverse();
     return res.json({
       status: "success",
       data: orderData,
@@ -54,8 +54,7 @@ export const getOrderHistory = async (req, res) => {
 
 export const getAllOrders = async (req, res) => {
   try {
-    const userData = await order
-      .find()
+    const userData = await Order.find()
       .populate({ path: "book" })
       .populate({ path: "user" })
       .sort({ createdAt: -1 });
@@ -74,7 +73,7 @@ export const getAllOrders = async (req, res) => {
 export const updateOrderStatusById = async (req, res) => {
   try {
     const { id } = req.params;
-    await order.findByIdAndUpdate(id, { status: req.body.status });
+    await Order.findByIdAndUpdate(id, { status: req.body.status });
     return res.json({
       status: "Success",
       message: "Status Updated Successfully",
