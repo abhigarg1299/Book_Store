@@ -21,7 +21,7 @@ app.use("/api/v1/cart", cartRoute);
 app.use("/api/v1/order", orderRoute);
 //creating port
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   dbConnect();
