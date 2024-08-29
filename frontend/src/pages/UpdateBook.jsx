@@ -28,7 +28,7 @@ function UpdateBook() {
   const submit = async () => {
     try {
       const response = await axios.put(
-        "http://127.0.0.1:1000/api/v1/book/update-book",
+        "https://book-store-backend-zkn3.onrender.com/api/v1/book/update-book",
         Data,
         { headers }
       );
@@ -50,7 +50,7 @@ function UpdateBook() {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://127.0.0.1:1000/api/v1/book/get-book-by-id/${id}`
+        `https://book-store-backend-zkn3.onrender.com/api/v1/book/get-book-by-id/${id}`
       );
       setData(response.data.data);
     };
