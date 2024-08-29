@@ -20,7 +20,7 @@ function ViewBookDetails() {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://127.0.0.1:1000/api/v1/book/get-book-by-id/${id}`
+        `https://book-store-backend-zkn3.onrender.com/api/v1/book/get-book-by-id/${id}`
       );
       setData(response.data.data);
     };
@@ -34,7 +34,7 @@ function ViewBookDetails() {
   };
   const handleFavourite = async () => {
     const response = await axios.put(
-      "http://127.0.0.1:1000/api/v1/favourite/add-book-to-faviourite",
+      "https://book-store-backend-zkn3.onrender.com/api/v1/favourite/add-book-to-faviourite",
       {},
       { headers }
     );
@@ -44,7 +44,7 @@ function ViewBookDetails() {
 
   const handleCart = async () => {
     const response = await axios.put(
-      "http://127.0.0.1:1000/api/v1/cart/add-to-cart",
+      "https://book-store-backend-zkn3.onrender.com/api/v1/cart/add-to-cart",
       {},
       { headers }
     );
@@ -52,7 +52,7 @@ function ViewBookDetails() {
   };
   const BookDelete = async () => {
     const response = await axios.delete(
-      "http://127.0.0.1:1000/api/v1/book/delete-book",
+      "https://book-store-backend-zkn3.onrender.com/api/v1/book/delete-book",
       { headers }
     );
     alert(response.data.message);
