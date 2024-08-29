@@ -18,7 +18,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://127.0.0.1:1000/api/v1/order/get-all-orders",
+        "https://book-store-backend-zkn3.onrender.com/api/v1/order/get-all-orders",
         { headers }
       );
       setAllOrders(response.data.data);
@@ -33,7 +33,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     const id = AllOrders[i]._id;
     const response = await axios.put(
-      `http://127.0.0.1:1000/api/v1/order/update-status/${id}`,
+      `https://book-store-backend-zkn3.onrender.com/api/v1/order/update-status/${id}`,
       Values,
       { headers }
     );
